@@ -1,0 +1,150 @@
+import static io.restassured.RestAssured.*;
+import static io.restassured.matcher.RestAssuredMatchers.*;
+import static org.hamcrest.Matchers.*;
+
+1) Types of http requests :
+get
+post
+put
+delete
+
+If we want to print any response ( we need not to use then() and will be declaring the variable in retun type Response)
+Response res = given().when();
+
+
+2) how many ways can we create request body
+
+	-> using HashMap
+	-> using org.json
+	-> using POJO (Plain Old Java Object)
+	-> using external JSON file
+	
+	
+3) How to pass Path and Query Parameters
+	
+	https://www.reqres.in/api/users?page=2
+	
+domain = https://www.reqres.in
+path = /api
+path = /users
+query parameter = page=2  (after ?, it will be query paramter)
+
+We can create multiple path and query parameters
+
+
+4) How to validate cookies and headers
+
+cookies and headers value be generated in run time
+cookie value will not be same in each run, but name will be same
+some headers value will be same and some won't
+Header is single header (name and value) , Headers(Multiple headers and multiple values)
+	
+methods =  getCookie() , getCookies() , getHeader() , getHeaders()
+
+list of cookies will be stored in Map (key and value pair)
+list of Headers will be stored in Header return type
+
+
+5) Different ways of Logging (getting logs in console)
+	
+	log().all() , log().cookies() , log().headers();
+	
+
+6) Firstly, we need to start api through command prompt 
+	
+in cmd, go the directory where json file is placed
+run cmd json-server filename
+
+
+7) Ways to validate response data (json response - Parse JSON response)
+
+Approach 1 : by validating fields in then()
+Approach 2 : by creating a variable for response and then converting that response from object to string and performing validation
+
+Note : validate any field from the body, then we will be using the method jsonPath().get()
+
+Approach 3 : by JSONObject class and using loop if multiple fields are there
+
+
+8) Parse XML Response body
+
+Traverse XML fields from Parent to child and we will be using . in place of / while writing xpath
+
+Approach 1 : by validating fields in then() 
+Approach 2 : by creating a variable for response and then converting that response from object to string and performing validation
+
+Note : validate any field from the body, then we will be using the method xmlPath().get()
+
+Approach 3 : Using XmlPath class
+
+Note : we will use getList to get the list of all the specific nodes
+	
+	
+9) File Upload and Download
+	
+given (multipart and contentType is mandatory)
+for multiple files validation, we will use indexing in then()
+
+
+10)	JSON / XML Schema Validations 
+
+Response validatios -> data
+Schema validations -> type of data
+
+Firstly, we will get the response from the request -> then we will get the schema of that response -> then we will validate , whether the resoponse is based on schema or not
+
+Steps to follow:
+
+1) Firstly, we will get the schema of json/xml file with the use of below tools or websites
+for JSON, we have a tool in google jsonformatter.org - there , we can select json -> schema
+for XML, we have a tool in google or type in google as [ convert xml to xsd ]
+2) Then, we will paste that schema in the file (ext = schema.json or schema.xsd) and will place it under src/test/resources 
+3) Then , in the code we will use assertThat method for validations and will use JSONSchemaValidator class, from where , use matchesJsonSchemaInClasspath method.
+
+JSON file schema will be saved in .json format
+XML file schema will .xsd format 
+
+Postman will only validate JSON schema
+
+
+11) Serialization and Deseilization
+
+converting POJO -> JSON - serialization
+converting JSON -> POJO - deserialization
+	
+Request from POJO will go in JSON format, request will processed and the response will also be in JSON and then we will getch the response from JSON using POJO
+We need Jackson library/api for this conversion.
+Reason : as java object is light weighted so its not secure. Thats y we use JSON to transmit the request and get the response
+
+
+12) Type Of Authorizations
+
+basic - Username adn Password directly hit the server (basic authentication)
+digestive - Won't directly hit the server, will do some extra checks
+preemptive - Combination of basic and digestive 
+bearer token - Need to create a token
+api key
+oauth 1.0,2.0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*********************************************
+Additional notes : If we have to convert data into string - then toString(), if we want to convert entire response into String - then asString()
