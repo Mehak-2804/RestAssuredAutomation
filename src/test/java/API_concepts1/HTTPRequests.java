@@ -1,51 +1,58 @@
 package API_concepts1;
+
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.*;
 import static io.restassured.matcher.RestAssuredMatchers.*;
 import static org.hamcrest.Matchers.*;
 
+import java.util.HashMap;
+
 public class HTTPRequests {
 
+	int id;
+
 	@Test
-	void getUser() {
+	void getUsers() {
 
 		given()
 
-				.when()
-
-				.then();
+				.when().get("https://reqres.in/api/users?page=2").then().statusCode(200).body("page", equalTo(2)).log()
+				.all();
 
 	}
 
 	@Test
 	void createUser() {
 
-		given()
+		HashMap mp = new HashMap();
+		mp.put("name", "Mehak");
+		mp.put("job", "SE");
 
-				.when()
+//		given().contentType("application/json").body(mp).when().post("https://reqres.in/api/users?page=2").then()
+//			.statusCode(201).log().all();
 
-				.then();
+		id = given().contentType("application/json").body(mp).when().post("https://reqres.in/api/users").jsonPath()
+				.getInt("id");
+
 	}
 
-	@Test
+	@Test(dependsOnMethods = { "createUser" })
 	void updateUser() {
+		HashMap mp = new HashMap();
+		mp.put("name", "Preet");
+		mp.put("job", "Finance");
 
-		given()
+//		given().contentType("application/json").body(mp).when().post("https://reqres.in/api/users?page=2").then()
+//			.statusCode(201).log().all();
 
-				.when().delete().
-
-				.then();
+		given().contentType("application/json").body(mp).when().put("https://reqres.in/api/users/" + id);
 	}
 
 	@Test
 	void deleteUser() {
 
-		given()
-
-				.when()
-
-				.then();
+		given().when().delete("https://reqres.in/api/users/" + id).then().statusCode(204).log().all();
 	}
 
 }

@@ -123,8 +123,13 @@ basic - Username adn Password directly hit the server (basic authentication)
 digestive - Won't directly hit the server, will do some extra checks
 preemptive - Combination of basic and digestive 
 bearer token - Need to create a token
-api key
-oauth 1.0,2.0
+api key - we need to create API key for this and then have to use as queryparameters in key and value form
+oauth 1.0,2.0 - 1.0 uses specified multiple paramters, whereas 2.0 uses single paramter which is accessToken
+
+
+13) Faker Library
+
+this is used to generate fake(dummy) data for testing purpose.
 
 
 
