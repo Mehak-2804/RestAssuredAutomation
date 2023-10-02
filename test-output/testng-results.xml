@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-10-01T12:17:57 IST" name="Default suite" finished-at="2023-10-01T12:18:00 IST" duration-ms="3183">
+  <suite started-at="2023-10-02T11:10:00 IST" name="Default suite" finished-at="2023-10-02T11:10:00 IST" duration-ms="434">
     <groups>
     </groups>
-    <test started-at="2023-10-01T12:17:57 IST" name="Default test" finished-at="2023-10-01T12:18:00 IST" duration-ms="3183">
-      <class name="API_concepts4.Authentications">
-        <test-method signature="testAPIKeyAuthen()[pri:0, instance:API_concepts4.Authentications@4c1909a3]" started-at="2023-10-01T12:17:57 IST" name="testAPIKeyAuthen" finished-at="2023-10-01T12:18:00 IST" duration-ms="3087" status="PASS">
+    <test started-at="2023-10-02T11:10:00 IST" name="Default test" finished-at="2023-10-02T11:10:00 IST" duration-ms="434">
+      <class name="API_concepts5.FakerDataGenerator">
+        <test-method signature="generateFakeData()[pri:0, instance:API_concepts5.FakerDataGenerator@1151e434]" started-at="2023-10-02T11:10:00 IST" name="generateFakeData" finished-at="2023-10-02T11:10:00 IST" duration-ms="347" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testAPIKeyAuthen -->
-      </class> <!-- API_concepts4.Authentications -->
+        </test-method> <!-- generateFakeData -->
+      </class> <!-- API_concepts5.FakerDataGenerator -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

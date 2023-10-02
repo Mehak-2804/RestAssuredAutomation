@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite">
-  <test thread-count="5" name="Test">
-    <classes>
-      <class name="API_concepts3.ParseXMLResponse"/>
-      <class name="API_concepts1.HTTPRequests"/>
-      <class name="API_concepts2.Parsing_JSON_Response"/>
-      <class name="API_concepts1.PostRequestWays"/>
-      <class name="API_concepts2.Path_QueryParam"/>
-      <class name="API_concepts2.cookiesAndHeaders"/>
-    </classes>
-  </test> <!-- Test -->
+	<test thread-count="5" name="Test">
+		<classes>
+			<class name="API_concepts3.ParseXMLResponse" />
+			<class name="API_concepts1.HTTPRequests" />
+			<class name="API_concepts5.apiChaining_updateUser" />
+			<class name="API_concepts4.Authentications" />
+			<class name="API_concepts1.PostRequestWays" />
+			<class name="API_concepts2.FileUploadAndDownload" />
+			<class name="API_concepts3.Parsing_JSON_Response" />
+			<class name="API_concepts4.SerializationAndDesirialization" />
+			<class name="API_concepts3.SchemaJSONandXML" />
+			<class name="API_concepts2.cookiesAndHeaders" />
+			<class name="API_concepts5.apiChaining_CreateUser" />
+			<class name="API_concepts4.FakerDataGenerator" />
+			<class name="API_concepts2.Path_QueryParam" />
+			<class name="API_concepts5.apiChaining_deleteUser" />
+			<class name="API_concepts5.apiChaining_getUser" />
+		</classes>
+	</test> <!-- Test -->
 </suite> <!-- Suite -->

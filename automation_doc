@@ -131,6 +131,105 @@ oauth 1.0,2.0 - 1.0 uses specified multiple paramters, whereas 2.0 uses single p
 
 this is used to generate fake(dummy) data for testing purpose.
 
+1) we need Java Faker dependdency in POM which will allow us to use different methods to create different type of test data
+
+2) Need to use Faker Class
+
+
+14)) JSON object and Arrays concept
+
+JSON Object  : starts and ends with { }
+JSON Array : starts and ends with [ ]
+JSON Element : it can be JSON Object or JSON Array
+
+Some API's starts from JSON Object and Some from JSON Array
+
+>>>>>>   JSON Onbject -> Single JSON Array -> JSON Objects   >>>>>
+{
+	[
+		{
+		
+		}
+
+		{
+
+		}
+	]
+}
+
+
+JSONObject object = new JSONObject(response.asString);
+object.getJSONArray(ArrayName).getJSONObject(JSON objects index).get(JSON element present in JSON objects);
+
+// example
+object.getJSONArray("").getJSONObject(i).get("");
+
+
+>>>>>>   Single JSON Array -> JSON Objects   >>>>>
+
+[
+		{
+		
+		}
+
+		{
+
+		}
+]
+
+JSONArray array = new JSONArray(response.asString);
+array.getJSONObject(JSON ojects index).get(JSON element present in JSON objects);
+// example
+array.getJSONObject(i).get("");
+
+>>>>>>>  JSON Array -> JSON Objects -> JSON Arrays 
+
+[
+		{
+			[
+			
+			]				
+		}
+
+		{
+		    [
+		
+	   	    ]
+		}
+]
+
+JSONArray array = new JSONArray(response.asString);
+
+array.getJSONObject(JSON Objects index).getJSONArray(JSON Array Name).get(JSON Array element name or index);
+// example
+array.getJSONObject(1).getJSONArray("").get(1);
+
+
+
+15)   API chaining concept
+
+Response from one request is the request for another (each and every request is interlinked)
+
+Example : CreateUser , which will create an ID for the request
+		  GetUser , which will get the ID from the request
+		  UpdateUser , which will get the ID from the update request for the given ID
+		  DeleteUser , which will delete the ID for the request
+
+So, here we are using same ID variable across different classes
+We will use (ITestContext context) from TestNG and will pass it as paramter in the testMethods  to set and fetch the value of variable
+
+>>> to set the value of ID 
+context.SetAttribute("userid" , id); // id variable will be available on test level
+
+>>>  to fetch the value of ID in different class 
+context.getAttribute(id);
+
+
+>>> to set the value of ID 
+context.getSuite().SetAttribute("userid" , id); //  id variable will be available on Suite level to use with in different tests
+
+>>>  to fetch the value of ID in different class 
+context.getSuite().getAtribute(id);
 
 
 
