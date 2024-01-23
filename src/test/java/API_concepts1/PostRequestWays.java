@@ -33,7 +33,7 @@ public class PostRequestWays {
 		// HashMap data1 = new HashMap();
 		//	data1.put("log" , "123");
 		//      data1.put("lat" , "234");
-		// data.put("location" , data1);
+		//      data.put("location" , data1);
 		
 		given().contentType("application/json").body(data).when().post("htttp:/localhost:3000/students").then()
 				.statusCode(201).body("name", equalTo("Mehak")).body("course[0]", equalTo("C"))
