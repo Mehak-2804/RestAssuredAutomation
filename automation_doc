@@ -14,7 +14,7 @@ Response res = given().when();
 
 2) how many ways can we create request body
 
-	-> using HashMap
+	-> using HashMap --- We can create nested hashmaps too
 	-> using org.json
 	-> using POJO (Plain Old Java Object)
 	-> using external JSON file
