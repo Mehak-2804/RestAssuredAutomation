@@ -18,7 +18,7 @@ public class PostRequestWays {
 
 	@Test
 	public static void postDataUsingHashMap() {
-
+		
 		HashMap data = new HashMap();
 
 		data.put("name", "Mehak");
@@ -26,9 +26,15 @@ public class PostRequestWays {
 		data.put("location", "Noida");
 
 		String courseArr[] = { "C", "C++" };
-
+		
 		data.put("course", courseArr);
 
+		// to create nested hashmap
+		// HashMap data1 = new HashMap();
+		//	data1.put("log" , "123");
+		//      data1.put("lat" , "234");
+		// data.put("location" , data1);
+		
 		given().contentType("application/json").body(data).when().post("htttp:/localhost:3000/students").then()
 				.statusCode(201).body("name", equalTo("Mehak")).body("course[0]", equalTo("C"))
 				.body("course[1]", equalTo("C++")).header("Content-Type", "application/json; charset=uft-8").log()
